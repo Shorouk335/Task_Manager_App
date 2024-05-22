@@ -3,5 +3,6 @@
  "user_name" : "User Name" ,
  "password" : "Password", 
  "user_name_required" : "user name is required" , 
- "password_requird" : "password is required"
+ "password_requird" : "password is required",
+ "login failed" :"Login Failed"
 }

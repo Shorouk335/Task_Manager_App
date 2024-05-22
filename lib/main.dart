@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,11 +7,10 @@ import 'package:task_manager_app/core/app_utils/utils.dart';
 import 'package:task_manager_app/core/theme/app_theme.dart';
 import 'package:task_manager_app/shared/widgets/responsive_framework.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Future.wait([EasyLocalization.ensureInitialized()]);
-   await setupLocator() ;
+  await setupLocator();
 
   // to initial Hive
   // await Hive.initFlutter();
@@ -35,27 +33,20 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'AppBasicMason',
-      debugShowCheckedModeBanner: false,
-    
-      routeInformationParser: Utils.appRouter.goRoute.routeInformationParser,
-      routeInformationProvider:Utils.appRouter.goRoute.routeInformationProvider,
-      routerDelegate: Utils.appRouter.goRoute.routerDelegate,
-    
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-    
-      builder: (context, child) {
-        final smartDialog = FlutterSmartDialog.init();
-        child = smartDialog(context, child);
-        return ResponsineWrapper(child: child);
-      },
-    
-      theme: ThemeManager.appTheme()
-    );
+        title: 'AppBasicMason',
+        debugShowCheckedModeBanner: false,
+        routeInformationParser: Utils.appRouter.goRoute.routeInformationParser,
+        routeInformationProvider:
+            Utils.appRouter.goRoute.routeInformationProvider,
+        routerDelegate: Utils.appRouter.goRoute.routerDelegate,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        builder: (context, child) {
+          final smartDialog = FlutterSmartDialog.init();
+          child = smartDialog(context, child);
+          return ResponsineWrapper(child: child);
+        },
+        theme: ThemeManager.appTheme());
   }
 }
-
-
-

@@ -1,1 +1,1 @@
- String baseUrl = "https://google.com";
+ String baseUrl = "https://dummyjson.com/";

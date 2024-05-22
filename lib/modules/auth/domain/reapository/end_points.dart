@@ -1,5 +1,6 @@
-class AuthEndPoint{
-static final String end = "";
+class AuthEndPoint{ 
+  static const String post = "auth/login" ; 
+ 
 
 
 }

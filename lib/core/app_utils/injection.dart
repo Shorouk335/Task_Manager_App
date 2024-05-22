@@ -1,3 +1,5 @@
+import 'package:task_manager_app/core/servies/prefServies.dart';
+
 import '../constant/constant.dart';
 import '../data_source/dio_service.dart';
 import '../router/router.dart';
@@ -11,8 +13,10 @@ GetIt locator = GetIt.instance;
   
   locator.registerSingleton<AppRouter>(AppRouter());
   locator.registerSingleton<DioService>(DioService(baseUrl: baseUrl));
+  final prefServies =  await PrefServies.initSharedPref();
+  locator.registerSingleton<PrefServies>(prefServies);
   locator.registerSingleton<AppThemesColors>(AppThemesColors());
-
+ 
   
 
 
