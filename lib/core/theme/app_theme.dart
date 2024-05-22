@@ -8,6 +8,8 @@ class ThemeManager {
   static ThemeData appTheme() {
     return ThemeData(
       fontFamily: "Cairo",
+    
+      
       primarySwatch: AppColors.primary.toMaterialColor(),
       colorScheme: AppThemesColors().selectedSchema,
       elevatedButtonTheme: ElevatedButtonThemeData(

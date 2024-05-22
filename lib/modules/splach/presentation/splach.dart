@@ -27,7 +27,11 @@ class _SplachScreenState extends State<SplachScreen> {
       backgroundColor: Colors.white,
       body: Container(
         child: Center(
-          child: Image.asset("welcome".jpg())
+          child:Image(
+            image: AssetImage("welcome".jpg()) , 
+            height: 300,
+            width: 300, 
+          )
         ),
       ),
     );

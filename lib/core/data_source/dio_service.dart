@@ -101,6 +101,7 @@ class DioService {
     required String url,
     bool isLoading = true,
   }) async {
+
     try {
       if (isLoading) {
         ShowSmartDialog.show();

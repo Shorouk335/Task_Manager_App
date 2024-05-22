@@ -22,10 +22,10 @@ class DefultValidation {
     return null;
   }
   
-  static String? defultEmailValidation(String? value) {
+  static String? defultUserNameValidation(String? value) {
     if (value != null) {
       if (value.isEmpty) {
-        return ("email_required".tr());
+        return ("user_name_required".tr());
       }
     }
     return null;
@@ -35,10 +35,6 @@ class DefultValidation {
     if (value != null) {
       if (value.isEmpty) {
         return ("password_requird".tr());
-      } else if (!(value.length > 3)) {
-        return ("passwors_short".tr());
-      } else if (!(value.length < 120)) {
-        return ("passwors_long".tr());
       } else {
         return null;
       }

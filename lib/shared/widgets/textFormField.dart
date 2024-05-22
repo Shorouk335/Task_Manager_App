@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager_app/core/theme/dynamic_theme/app_color.dart';
 
-
-/// if ispassword == true  
-/// should textObscure == true 
-/// in design ======> validation parameter from utils validation class
-///  =========== > validator: DefultValidation.defaultValidation ,
-import 'package:flutter/material.dart';
-
-
-/// if ispassword == true  
-/// should textObscure == true 
- 
 class DefultTextFormField extends StatefulWidget {
   DefultTextFormField(
       {super.key,
@@ -44,11 +34,9 @@ class DefultTextFormField extends StatefulWidget {
       this.textColor,
       this.textSize,
       this.boxShadow,
-      this.isPassword = false , 
-      this.aroundContainerPadding =  EdgeInsets.zero , 
-      this.textAlign = TextAlign.start
-      
-      });
+      this.isPassword = false,
+      this.aroundContainerPadding = EdgeInsets.zero,
+      this.textAlign = TextAlign.start});
   //title
   final String? title;
   final Color? titleColor;
@@ -83,8 +71,8 @@ class DefultTextFormField extends StatefulWidget {
   final Color? hintColor;
   final List<BoxShadow>? boxShadow;
   final bool isPassword;
-  EdgeInsetsGeometry? aroundContainerPadding ;
-  TextAlign textAlign ;
+  EdgeInsetsGeometry? aroundContainerPadding;
+  TextAlign textAlign;
   @override
   State<DefultTextFormField> createState() => _DefultTextFormFieldState();
 }
@@ -92,9 +80,7 @@ class DefultTextFormField extends StatefulWidget {
 class _DefultTextFormFieldState extends State<DefultTextFormField> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-       children: [
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       if (widget.title != null)
         Text(
           widget.title ?? "",
@@ -105,18 +91,15 @@ class _DefultTextFormFieldState extends State<DefultTextFormField> {
         ),
       if (widget.title != null)
         SizedBox(
-          height: 25,
+          height: 10,
         ),
-        // if want to make shadow to text form with the same radius of text form
-      Container( 
+      Container(
         // to fix label error
-        padding: widget.aroundContainerPadding ,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
+        padding: widget.aroundContainerPadding,
+        // clipBehavior: Clip.antiAliasWithSaveLayer,
         decoration: BoxDecoration(
-           color: Colors.transparent,
             borderRadius: BorderRadius.circular(widget.borderRadius ?? 10.0),
-             boxShadow: widget.boxShadow
-            
+            boxShadow: widget.boxShadow,
             ),
         child: TextFormField(
           controller: widget.textController,
@@ -129,19 +112,23 @@ class _DefultTextFormFieldState extends State<DefultTextFormField> {
           onFieldSubmitted: widget.onFieldSubmitted,
           onSaved: widget.onSaved,
           style: widget.textStyle,
-         // to controll of align of text in text form field
-          textAlign: widget.textAlign ,
+          // to controll of align of text in text form field
+          textAlign: widget.textAlign,
           validator: widget.validator,
           decoration: InputDecoration(
             contentPadding: widget.contentPadding,
             label: widget.label,
             labelText: widget.labelText,
-            labelStyle: widget.labelStyle,
+          
+            labelStyle: TextStyle(
+              fontSize: 16.0 , 
+              
+            ),
             hintText: widget.hintText,
             hintStyle: TextStyle(
                 color: widget.hintColor ?? Colors.grey[400],
-                fontSize: widget.textSize),
-                prefixIcon: widget.prefix,
+                fontSize: 15.0),
+            prefixIcon: widget.prefix,
 
             suffix: widget.isPassword
                 ? InkWell(
@@ -154,13 +141,14 @@ class _DefultTextFormFieldState extends State<DefultTextFormField> {
                       widget.obscureText == false
                           ? Icons.remove_red_eye
                           : Icons.visibility_off,
+                          color: AppColors.primary,
                     ),
                   )
                 : widget.suffix,
-         
+
             filled: widget.isFilledColor,
             fillColor: widget.fillColor,
-            // border before click
+
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                   Radius.circular(widget.borderRadius ?? 10.0)),
@@ -168,39 +156,33 @@ class _DefultTextFormFieldState extends State<DefultTextFormField> {
                   width: widget.borderSideWidth ?? 0.0,
                   color: widget.borderSideColor ??
                       widget.fillColor ??
-                      Colors.transparent),
+                      Colors.grey.withOpacity(0.5)),
             ),
-            //border after click
+
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                   Radius.circular(widget.borderRadius ?? 10.0)),
               borderSide: BorderSide(
                   width: widget.borderSideWidth ?? 1.0,
-                  color: widget.borderSideColor ??
-                      widget.fillColor ??
-                      Colors.transparent),
+                  color: AppColors.primary 
+                      ),
             ),
-             // show in click of button with click in  textform with validation 
-            //without write text in it
-            focusedErrorBorder:  OutlineInputBorder(
+
+            focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                   Radius.circular(widget.borderRadius ?? 10.0)),
               borderSide: BorderSide(
                   width: widget.borderSideWidth ?? 1.0,
-                  color: widget.borderSideColor ??
-                      widget.fillColor ??
-                      Colors.transparent),
+                  color: AppColors.error),
             ),
-            // show in click of button without click in  textform with validation
-            //  errorBorder:  OutlineInputBorder(
-            //   borderRadius: BorderRadius.all(
-            //       Radius.circular(widget.borderRadius ?? 10.0)),
-            //   borderSide: BorderSide(
-            //       width: widget.borderSideWidth ?? 1.0,
-            //       color: widget.borderSideColor ??
-            //           widget.fillColor ??
-            //           Colors.transparent),
-            // ),
+
+             errorBorder:  OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                  Radius.circular(widget.borderRadius ?? 10.0)),
+              borderSide: BorderSide(
+                  width: widget.borderSideWidth ?? 1.0,
+                  color: AppColors.error),
+            ),
           ),
         ),
       )

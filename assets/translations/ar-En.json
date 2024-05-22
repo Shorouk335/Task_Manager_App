@@ -1,3 +1,7 @@
 {
- "project" : "بروجكتي"
+ "login" : "تسجبل الدخول" , 
+ "user_name" : "اسم المستخدم" ,
+ "password" : "الرقم السري" , 
+ "user_name_required" :"يجب ادخال اسم المستخدم" , 
+ "password_requird" : "يجب ادخال الرقم السري"
 }
